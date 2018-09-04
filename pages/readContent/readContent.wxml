@@ -1,0 +1,27 @@
+<!--pages/readContent/readContent.wxml-->
+<import src="/towxml/entry.wxml" />
+<view>
+  <image src='../../static/imgs/Ripple-2.3s-200px.svg' class='loading' wx:if="{{isLoading}}"></image>
+  <view wx:else>
+    <view class='readcontent'>
+      <template is="entry" data="{{...article}}" />
+    </view>
+    <scroll-view scroll-y class='catalog-menu' wx:if='{{isShow}}'>
+      <view class='catalog-item' wx:for="{{catalog}}" wx:key="{{index}}" bindtap='handleGet' data-id='{{item._id}}'>
+        {{item.title}}
+      </view>
+    </scroll-view>
+    <view class='mask' wx:if='{{isShow}}' bindtap='toggleCatalog'>
+    </view>
+
+
+    <view class='menu'>
+      <view class='iconfont icon-lishifanyeim'></view>
+      <view class='iconfont icon-mulu' bindtap="toggleCatalog"></view>
+      <view class='iconfont icon-yueduye_zitizengda'></view>
+      <view class='iconfont icon-yueduye_zitijianxiao'></view>
+      <view class='iconfont icon-lishifanyeim1'></view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,43 @@
+<!--pages/detail/detail.wxml-->
+<view class='wrap'>
+  <image src='../../static/imgs/Ripple-2.3s-200px.svg' class='loading' wx:if="{{isLoading}}"></image>
+  <view wx:else>
+    <view class='first_content'>
+      <view>
+        <image src='{{bookContent.img}}' class='image-detail'></image>
+      </view>
+      <view class='main-content'>
+        <view>
+          <view class='title'>{{bookContent.title}}</view>
+        </view>
+        <view class='content-d'>
+          <view class='book-name'>作者：{{bookContent.author}}</view>
+          <view class='book-looknums'>{{bookContent.looknums}}人在看</view>
+          <view class='book-likenums'>{{bookContent.startsnums}}人喜欢 </view>
+        </view>
+
+      </view>
+    </view>
+    <view class='second_content'>
+      <button>收藏</button>
+      <button>分享好友</button>
+    </view>
+    <view class="third_content">
+      <view class="dis">简介</view>
+      <view class="book-content">{{bookContent.desc}}</view>
+    </view>
+    <view class='four_content'>
+      <view class='four_r'>
+        <text class='menu'>查看目录</text>
+        <text class='catalag'>一共多少章</text>
+      </view>
+      <view class='four_l'>
+        <text>更新于{{bookContent.updateTime}}</text>
+      </view>
+    </view>
+    <view class='fifth_content'>
+      <button bindtap='jumpRead' data-id='{{bookContent._id}}'>阅读书籍</button>
+    </view>
+  </view>
+
+</view>
