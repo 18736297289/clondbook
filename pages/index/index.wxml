@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view class='container index'>
+  <image src='../../static/imgs/Ripple-2.3s-200px.svg' class='loading' wx:if="{{isLoading}}"></image>
+  <view wx:else>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{swiperData}}" wx:key="{{index}}">
+        <swiper-item bindtap="jump" data-id="{{item.book._id}}">
+          <image src="{{item.img}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='main-content'>
+
+      <view class='content-item' wx:for="{{mainContent}}" wx:key="{{index}}">
+
+        <view class='title'>
+          <text>{{item.title}}</text>
+        </view>
+        <view class='content' wx:for="{{item.books}}" wx:key="{{index}}" bindtap="jump" data-id="{{item._id}}">
+          <view class='box-l'>
+            <image src='{{item.img}}' class='image'></image>
+          </view>
+          <view class='box-r'>
+
+            <view>
+              <view class='book-title'>{{item.title}}</view>
+              <view class='book-desc'>{{item.desc}}</view>
+            </view>
+
+            <view class='author'>
+              <text class='book-name'>{{item.author}}</text>
+              <view class='author-r'>
+                <text class='update-time'>两天前</text>
+                <text class='fenlei'>{{}}</text>
+                <text class='many'>{{item.looknums}}人在看</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
